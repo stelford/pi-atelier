@@ -230,9 +230,8 @@ const SEGMENT_ITEMS: Record<SegmentId, (context: ItemContext) => FooterItem[]> =
 		]
 			.filter(Boolean)
 			.join(" ");
-		const cost = `${paintValue(costValue(metrics, config.currencyDecimals), "cost", palette)}${
-			metrics.subscription ? palette.paint("muted", " (sub)") : ""
-		}`;
+		const cost = `${paintValue(costValue(metrics, config.currencyDecimals), "cost", palette)}${metrics.subscription ? palette.paint("muted", " (sub)") : ""
+			}`;
 		return [
 			item(
 				"input",
@@ -290,7 +289,8 @@ const SEGMENT_ITEMS: Record<SegmentId, (context: ItemContext) => FooterItem[]> =
 				? `${defaultLabel} / ${configured.toUpperCase()}`
 				: defaultLabel;
 		const rendered = palette.paint("menu", shortcut);
-		return [item("menu", iconFor(palette)(symbols.menu, rendered, "menu"), rendered)];
+		//return [item("menu", iconFor(palette)(symbols.menu, rendered, "menu"), rendered)];
+		return [];
 	},
 };
 
@@ -533,7 +533,7 @@ export function createFooterComponent(options: FooterComponentOptions): AtelierF
 			const line = renderSurface(Math.max(0, width - 4), "telemetry");
 			return line ? [`  ${line}  `] : [];
 		},
-		invalidate() {},
+		invalidate() { },
 		dispose() {
 			if (disposed) return;
 			disposed = true;
